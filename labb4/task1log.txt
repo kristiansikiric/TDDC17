@@ -1,0 +1,10 @@
+{"act": "begin_group", "ts": 0}
+{"act": "open_list_sorting", "key_list": ["h_SINGLE", "h_(", "h_ff", "h_INSERTION_ORDER", "h_)"]}
+{"ts":0, "act": "state_update", "state_id": 0, "state": {"var0": "0(Atom dummy(val1))"}, "g": -1, "real_g": -1}
+{"ts": 0, "act": "evaluated_states", "state_id": 0, "preferred": 1}
+{"act": "end_group"}
+{"act": "begin_group", "ts": 0}
+{"ts": 0, "act": "evaluated_heuristics", "count": 1}
+{"act": "preferred_heuristics", "key_list": []}
+{"act": "main_heuristic", "target": "h_ff"}
+{"act": "end_group"}
