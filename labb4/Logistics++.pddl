@@ -1,9 +1,10 @@
 
 ;; This is a plain STRIPS formulation of the standard Logistics domain.
 
-;; In this domain, there are six different types of objects: "object"
-;; (the packages to be transported), "truck", "airplane" and their
-;; common supertype "vehicle", "location" and the subtype "airport",
+;; In this domain, there are ten different types of objects: "object", "smallobject" and
+;; "bigobject" (the packages to be transported (big and small object are types of object))
+;;, "truck", "airplane", "train" and their common supertype "vehicle" which also have subtypes big- and small vehicle,
+;; "location" and the subtype "airport" and "trainstation",
 ;; and finally "city". Types are defined by static (in the sense that
 ;; there are no operators that change their truth value) unary predicates.
 ;; The types of objects in a problem instance must be defined by including

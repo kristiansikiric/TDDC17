@@ -26,7 +26,7 @@
    (truck truck1) (truck truck2) (truck truck3) (airplane airplane1)
 
    ;; likewise, airports must be declared both as "location" and as
-   ;; the subtype "airport",
+   ;; the subtype "airport" same for trainstations,
    (location office1) (location office2) (location office3)
    (location airport1) (location airport2) (location airport3)
    (location trainstation1) (location trainstation2) (location trainstation3)
