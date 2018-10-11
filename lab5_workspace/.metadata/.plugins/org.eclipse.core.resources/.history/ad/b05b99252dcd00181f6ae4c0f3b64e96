@@ -8,7 +8,7 @@ public class StateAndReward {
 		
 		String state = "OneStateToRuleThemAll";
 		
-		/*if(angle == 0 || angle == -0){
+		if(angle == 0 || angle == -0){
 			state = "GoalState";
 		}
 		else if(angle > 0.0 && angle <= Math.PI/2){
@@ -22,8 +22,8 @@ public class StateAndReward {
 		}
 		else if(angle < -Math.PI/2 && angle >= -Math.PI){
 			state = "DownLeftw";
-		}*/
-		state = Integer.toString(discretize(angle, numberOfStates+2, -Math.PI,Math.PI));
+		}
+		//state = Integer.toString(discretize(angle, numberOfStates+2, -Math.PI,Math.PI));
 				
 		
 		return state;

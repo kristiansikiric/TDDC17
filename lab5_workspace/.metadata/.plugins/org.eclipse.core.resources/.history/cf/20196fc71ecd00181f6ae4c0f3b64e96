@@ -1,14 +1,12 @@
 public class StateAndReward {
 
-	static int MAXVX = 5;
-	static int MAXVY = 5;
-	static int numberOfStates = 10;
+	
 	/* State discretization function for the angle controller */
 	public static String getStateAngle(double angle, double vx, double vy) {
 		
 		String state = "OneStateToRuleThemAll";
 		
-		/*if(angle == 0 || angle == -0){
+		if(angle == 0 || angle == -0){
 			state = "GoalState";
 		}
 		else if(angle > 0.0 && angle <= Math.PI/2){
@@ -22,8 +20,7 @@ public class StateAndReward {
 		}
 		else if(angle < -Math.PI/2 && angle >= -Math.PI){
 			state = "DownLeftw";
-		}*/
-		state = Integer.toString(discretize(angle, numberOfStates+2, -Math.PI,Math.PI));
+		}
 				
 		
 		return state;
@@ -44,17 +41,7 @@ public class StateAndReward {
 
 		/* TODO: IMPLEMENT THIS FUNCTION */
 
-		String state = "OneStateToRuleThemAll";
-		String anglestate = "OneStateToRuleThemAll2";
-		String vystate = "OneStateToRuleThemAll2";
-		String vxstate = "OneStateToRuleThemAll2";
-		
-		anglestate = getStateAngle(angle, vx ,vy);
-		
-		vystate = Integer.toString(discretize(vy, 8, -MAXVY,MAXVY));
-		vxstate = Integer.toString(discretize(vx, 8, -MAXVX ,MAXVX));
-		
-		state = anglestate + "," + vystate + "," + vxstate + ",";
+		String state = "OneStateToRuleThemAll2";
 		
 		return state;
 	}
@@ -65,11 +52,7 @@ public class StateAndReward {
 		/* TODO: IMPLEMENT THIS FUNCTION */
 		
 		double reward = 0;
-		
-		reward = getRewardAngle(angle,vx,vy)/Math.PI + Math.max(0,MAXVX - Math.abs(vx))/MAXVX + Math.max(0,MAXVY - Math.abs(vy))/MAXVY;
-		if (reward < 0){
-			return 0;
-		}
+
 		return reward;
 	}
 

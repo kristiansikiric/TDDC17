@@ -24,7 +24,7 @@ public class QLearningController extends Controller {
 	RocketEngine middleEngine;
 	RocketEngine rightEngine;
 
-	final static int NUM_ACTIONS = 4; /* The takeAction function must be changed if this is modified */
+	final static int NUM_ACTIONS = 7; /* The takeAction function must be changed if this is modified */
 	
 	/* Keep track of the previous state and action */
 	String previous_state = null;
@@ -91,7 +91,6 @@ public class QLearningController extends Controller {
 		/* TODO: IMPLEMENT THIS FUNCTION */
 		switch (action){
 			case 0:
-				resetRockets();
 				break;
 			case 1:
 				resetRockets();
@@ -99,13 +98,28 @@ public class QLearningController extends Controller {
 				break;
 			case 2:
 				resetRockets();
+				middleEngine.setBursting(true);
 				leftEngine.setBursting(true);
 				break;
 			case 3:
 				resetRockets();
+				leftEngine.setBursting(true);
+				break;
+			case 4:
+				resetRockets();
 				rightEngine.setBursting(true);
 				break;
-
+			case 5:
+				resetRockets();
+				middleEngine.setBursting(true);
+				rightEngine.setBursting(true);
+				break;
+			case 6:
+				resetRockets();
+				middleEngine.setBursting(true);
+				leftEngine.setBursting(true);
+				rightEngine.setBursting(true);
+				break;
 		}
 		
 	}
@@ -115,20 +129,14 @@ public class QLearningController extends Controller {
 		iteration++;
 		
 		if (!paused) {
-			if(iteration < 250000){
-				explore_chance = 0.9;
-			}
-			else {
-				explore_chance = 0.3;
-			}
-			String new_state = StateAndReward.getStateHover(angle.getValue(), vx.getValue(), vy.getValue());
+			String new_state = StateAndReward.getStateAngle(angle.getValue(), vx.getValue(), vy.getValue());
 
 			/* Repeat the chosen action for a while, hoping to reach a new state. This is a trick to speed up learning on this problem. */
 			action_counter++;
 			if (new_state.equals(previous_state) && action_counter < REPEAT_ACTION_MAX) {
 				return;
 			}
-			double previous_reward = StateAndReward.getRewardHover(previous_angle, previous_vx, previous_vy);
+			double previous_reward = StateAndReward.getRewardAngle(previous_angle, previous_vx, previous_vy);
 			action_counter = 0;
 
 			/* The agent is in a new state, do learning and action selection */

@@ -23,7 +23,7 @@ public class StateAndReward {
 		else if(angle < -Math.PI/2 && angle >= -Math.PI){
 			state = "DownLeftw";
 		}*/
-		state = Integer.toString(discretize(angle, numberOfStates+2, -Math.PI,Math.PI));
+		state = Integer.toString(discretize(angle, numberOfStates+1, -Math.PI,Math.PI));
 				
 		
 		return state;
@@ -51,8 +51,8 @@ public class StateAndReward {
 		
 		anglestate = getStateAngle(angle, vx ,vy);
 		
-		vystate = Integer.toString(discretize(vy, 8, -MAXVY,MAXVY));
-		vxstate = Integer.toString(discretize(vx, 8, -MAXVX ,MAXVX));
+		vystate = Integer.toString(discretize(vy, numberOfStates/2, -MAXVY,MAXVY));
+		vxstate = Integer.toString(discretize(vx, numberOfStates/2, -MAXVX ,MAXVX));
 		
 		state = anglestate + "," + vystate + "," + vxstate + ",";
 		

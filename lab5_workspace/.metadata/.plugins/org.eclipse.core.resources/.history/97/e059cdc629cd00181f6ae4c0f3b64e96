@@ -52,7 +52,7 @@ public class StateAndReward {
 		anglestate = getStateAngle(angle, vx ,vy);
 		
 		vystate = Integer.toString(discretize(vy, 8, -MAXVY,MAXVY));
-		vxstate = Integer.toString(discretize(vx, 8, -MAXVX ,MAXVX));
+		vxstate = Integer.toString(discretize(vx, 6, -MAXVX ,MAXVX));
 		
 		state = anglestate + "," + vystate + "," + vxstate + ",";
 		

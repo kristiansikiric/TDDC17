@@ -91,17 +91,16 @@ public class QLearningController extends Controller {
 		/* TODO: IMPLEMENT THIS FUNCTION */
 		switch (action){
 			case 0:
-				resetRockets();
 				break;
 			case 1:
 				resetRockets();
 				middleEngine.setBursting(true);
 				break;
-			case 2:
+			case 3:
 				resetRockets();
 				leftEngine.setBursting(true);
 				break;
-			case 3:
+			case 4:
 				resetRockets();
 				rightEngine.setBursting(true);
 				break;
@@ -115,12 +114,6 @@ public class QLearningController extends Controller {
 		iteration++;
 		
 		if (!paused) {
-			if(iteration < 250000){
-				explore_chance = 0.9;
-			}
-			else {
-				explore_chance = 0.3;
-			}
 			String new_state = StateAndReward.getStateHover(angle.getValue(), vx.getValue(), vy.getValue());
 
 			/* Repeat the chosen action for a while, hoping to reach a new state. This is a trick to speed up learning on this problem. */
